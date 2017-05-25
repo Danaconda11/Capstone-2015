@@ -11,7 +11,7 @@
 ╚══════╝ ╚══▀▀═╝ ╚══════╝
 
 */
-$host = 'csunix.mohawkcollege.ca';
+$host = 'xxx';
 $user = '*Mid*';
 $pass = '00000000';
 $dbname = '*Mid*';
