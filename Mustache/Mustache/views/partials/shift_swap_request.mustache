@@ -1,0 +1,52 @@
+	<form
+		class="form-horzontal"
+		id="swap_form"
+		style="margin-bottom: 0px;"
+		method="post"
+		action="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/processing.php"
+	>
+
+	<input type="hidden" name="shift_swap_request" value="1" />
+	<input type="hidden" name="initiator_PK" value="{{empID}}" />
+	<input type="hidden" id="receiver_PK" name="receiver_PK" value="" />
+
+	<div class="form-group">
+	<label class="col-md-4">Your Shift: </label>
+		<div class="col-md-6">
+			<select id="initiator_select" class="form-control" name="initiator_select" required>
+				<option value="" >--Select one of your shifts--</option>
+				{{#possibleShifts}}
+				 <option
+				 	data-date="{{Date}}"
+				 	data-shift_type="{{Shift_Type}}"
+					data-empID="{{EMP_ID}}"
+				 	class="initiator_option"
+				 	type="checkbox"
+				 	name="{{EMP_NAME}}{{Date}}"
+				 	value="{{Shift_ID}}"> {{EMP_NAME}} -- {{Date}} -- {{Shift_Type}}
+				 </option>
+				{{/possibleShifts}}
+			</select>
+		</div>
+		<br>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+	<label class="col-md-4">Possible shifts to swap: </label>
+		<div class="col-md-6" id="swap_container">
+
+		</div>
+		<br>
+	</div>
+
+	<br>
+
+	<div class="modal-footer">
+		<button id="swap_submit" type="submit" class="btn btn-default btn-sm" >Submit</button>
+		<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+	</div>
+
+
+</form>

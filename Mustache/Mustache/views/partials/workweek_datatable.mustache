@@ -1,0 +1,34 @@
+
+<table id="employee_shift_data"  class="compact hover grid" style="width:100%">
+	<thead>
+		<tr>
+			<td>Date</td>
+			<td>Name</td>
+			<td>Employee ID</td>
+			<td>Department</td>
+			<td>Shift Type</td>
+			<td>Status</td>
+			{{#pastModal}}<td>Supervisor</td>{{/pastModal}}
+		</tr>
+	</thead>
+	<tbody>
+	{{#listofemployees}}
+		<tr 
+		{{#isAdmin}}
+			{{#pastModal}}data-toggle="modal" data-target="#myModal"
+			{{/pastModal}} 
+		{{/isAdmin}}
+			
+			class="{{dataGroup}}" data-shiftid="{{Shift_ID}}">
+			<td>{{Date}}</td>
+			<td>{{EMP_NAME}}</td>
+			<td>{{EMP_ID}}</td>
+			<td>{{Position_Name}}</td>
+			<td>{{Shift_Type}}</td>
+			<td>{{Status}}</td>
+			{{#pastModal}}<td>{{Supervisor_FK}}</td>{{/pastModal}}
+		</tr>
+	{{/listofemployees}}
+	</tbody>
+</table>
+

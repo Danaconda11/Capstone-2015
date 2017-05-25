@@ -1,0 +1,52 @@
+
+	<form
+		class="form-horzontal"
+		id="update_status_form"
+		style="margin-bottom: 0px;"
+		method="post"
+		action="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/processing.php"
+	>
+
+	<input type="hidden" name="form_update_status" value="1" />
+	<input type="hidden" name="shiftid" value="{{shiftid}}" />
+
+	<div class="form-group">
+		<label class="col-md-2">Name</label>
+		<div class="col-md-6">
+		<input class="form-control" readonly id="update_name" name="update_name" type="text" value="{{Name}}" required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Date</label>
+		<div class="col-md-6">
+		<input class="form-control" type="text" name="date" value="{{Date}}" readonly required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Status</label>
+		<div class="col-md-6">
+		<select class="form-control" name="status" required>
+			<option value="">--Select Status--</option>
+			<option value="W">Worked</option>
+			<option value="A">Absent</option>
+			<option value="S">Sick</option>
+			<option value="V">Vacation</option>
+		</select>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="modal-footer">
+		<button id="update_stauts_submit" type="submit" class="btn btn-default btn-sm" >Submit</button>
+		<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+	</div>
+
+
+</form>

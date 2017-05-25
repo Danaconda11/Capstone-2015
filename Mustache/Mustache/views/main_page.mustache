@@ -1,0 +1,146 @@
+<html>
+<head>
+	{{#js}}
+		<script src="{{.}}"></script>
+	{{/js}}
+	{{#css}}
+		<link rel='stylesheet' href='{{.}}'>
+	{{/css}}
+</head>
+<body>
+<div class='main'>
+<div  class='panel panel-success'>
+	<span id='logOut' class='pull-right'>
+			<a href="logout.php" class='btn btn-success'><span class='glyphicon glyphicon-off'> </span>  Log out</a>
+	</span>
+
+
+	<div id="main-panel-heading" class='panel-heading'>
+		<div class='panel-title'>
+			<h1> Welcome, {{user}}!</h1>
+		</div>
+	</div>
+
+
+	<!-- main page body -->
+	<div class='panel-body'>
+
+	<!-- displays feedback for form submissions -->
+	<div id="form_messages" class="alert alert-dismissable alert-primary">
+
+	</div>
+
+<!--  begin action panel -->
+	<div class="col-md-4">
+		<div class="panel panel-success">
+			<div class="panel panel-heading">
+				<div class="panel-title">
+					Action Items
+				</div>
+			</div>
+			<div class="panel-body">
+				{{#admin}}
+					{{>admin_navbar}}
+				{{/admin}}
+
+				{{^admin}}
+					{{>user_navbar}}
+				{{/admin}}
+			</div>
+		</div>
+	</div>
+<!-- end action panel -->
+
+<!-- begin table panel for work week-->
+	<div class="col-md-8">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<div class="panel-title">
+					Employee Work Week Information
+					<div class="pull-right"><small>
+						Current Week: {{current_week}}
+						</small>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body">
+
+			<div class="well">
+				For Today: <b>People scheduled:</b> {{#howManyOnShift}}{{Total}}{{/howManyOnShift}}
+					<b>People Required: </b> {{#requiredOnShift}} {{Amount}} {{/requiredOnShift}}&nbsp&nbsp
+			</div>
+
+			<ul class="nav nav-tabs">
+			  <li role="presentation" id="this_week" class="shifts_tabs"><a href="#">This week</a></li>
+			  <li role="presentation" id="past_shifts" class="shifts_tabs"><a href="#">Past weeks</a></li>
+			  <li role="presentation" id="future_shifts" class="shifts_tabs"><a href="#">Future Shifts</a></li>
+			  <li role="presentation" id="swap_tab" ><a href="#">Swaps
+					{{#hasValidSwaps}}
+					<span style="background-color: #d35400" class="badge label-warning">{{numberOfSwaps}}</span>
+					{{/hasValidSwaps}} 
+				</a></li>
+			</ul>
+				<div id="this_week_div" class="shifts_divs">
+					{{>workweek_datatable}}
+				</div>
+				<div id="past_shifts_div" class="shifts_divs" style="display: none">
+
+				</div>
+				<div id="future_shifts_div" class="shifts_divs" style="display: none">
+
+				</div>
+				<div id="swap_div" style="display: none">
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- end table panel for work week-->
+
+<br>
+
+<!-- begin table for shift swap -->
+
+<!--
+<div class="col-md-8">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<div class="panel-title">
+					Shift swap information
+				</div>
+			</div>
+			<div class="panel-body">
+				{{#admin}}
+					Admin
+				{{/admin}}
+			</div>
+		</div>
+	</div>
+-->
+<!-- end table for shift swap -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <!-- mustache gets rendered here -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End modal -->
+
+	</div>
+
+</div>
+</div>
+</body>
+</html>

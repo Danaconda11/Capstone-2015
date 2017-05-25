@@ -1,0 +1,77 @@
+
+	<form
+		class="form-horzontal"
+		id="create_employee_form"
+		style="margin-bottom: 0px;"
+		method="post"
+		action="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/processing.php"
+	>
+
+	<input type="hidden" name="form_create_emp" value="1" />
+
+	<div class="form-group">
+		<label class="col-md-2">Name</label>
+		<div class="col-md-6">
+		<input class="form-control" name="create_name" type="text" autofocus required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Phone</label>
+		<div class="col-md-6">
+		<input class="form-control" type="text" name="phone" minlength="11" maxlength="11" required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Position</label>
+		<div class="col-md-6">
+		<select class="form-control" name="position">
+		<option value="0">--Select Position--</option>
+		{{#positions}}
+			<option value="{{Position_ID}}">{{Position_Name}}</option>
+		{{/positions}}
+		</select>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Supervisor</label>
+		<div class="col-md-6">
+		yes<input id='super_yes' type="radio" name="supervisor" value="1"> no <input id='super_no' type="radio" name="supervisor" value="0">
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Password</label>
+		<div class="col-md-6">
+		<input name="create_password" class="form-control" type="text" required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Notes</label>
+		<div class="col-md-6">
+		<input name="notes" class="form-control" type="text" >
+		</div>
+	</div>
+
+	<br>
+
+	<div class="modal-footer">
+		<button id="create_employee_submit" type="submit" class="btn btn-default btn-sm" >Submit</button>
+		<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+	</div>
+
+
+</form>

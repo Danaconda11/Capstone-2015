@@ -1,0 +1,62 @@
+<table id="employee_shift_data"  class="compact hover grid" style="width:100%">
+	<thead>
+		<tr>
+			<td>Initiator Date</td>
+			<td>Initiator Name</td>
+			<td>Initiator Shift Type</td>
+			<td>Swap with</td>
+			<td>Receiver Date</td>
+			<td>Receiver Shift Type</td>
+			<td>Status</td>
+		</tr>
+	</thead>
+	<tbody>
+	{{#employeeData}}
+		<tr
+		{{#isAdmin}}
+			{{#isReceiver}}
+			data-toggle="modal" data-target="#myModal"
+			{{/isReceiver}}
+
+			class="admin_swaps"
+			data-toggle="modal" data-target="#myModal"
+
+		{{/isAdmin}}
+
+		{{#isReceiver}}
+			data-toggle="modal" data-target="#myModal"
+			class="swap_row"
+		{{/isReceiver}}
+
+		data-Swap-PK = "{{Swap_PK}}"
+		data-initiator-name="{{myName}}"
+		data-receiver-name="{{theirName}}"
+		data-swap-status = "{{Status}}"
+		data-shift1 = "{{theirShift}}"
+		data-shift2 = "{{myShift}}"
+		>
+
+		{{^isReceiver}}
+			<td>{{myDate}}</td>
+			<td>{{myName}}</td>
+			<td>{{myShiftType}}</td>
+			<td>{{theirName}}</td>
+			<td>{{theirDate}}</td>
+			<td>{{theirShiftType}}</td>
+			<td>{{Status}}</td>
+		{{/isReceiver}}
+
+		{{#isReceiver}}
+			<td>{{theirDate}}</td>
+			<td>{{theirName}}</td>
+			<td>{{theirShiftType}}</td>
+			<td>{{myName}}</td>
+			<td>{{myDate}}</td>
+			<td>{{myShiftType}}</td>
+			<td>{{Status}}</td>
+		{{/isReceiver}}
+
+		</tr>
+	{{/employeeData}}
+	</tbody>
+</table>

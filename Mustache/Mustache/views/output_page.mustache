@@ -1,0 +1,30 @@
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'></script>
+
+<div class='container custom-container'>
+<div  class='panel panel-default'>
+	<div class='panel-heading'>
+		<div class='pnnel-title'>
+			<h2 class=''>Result:</h2>
+		</div>
+	</div>
+	<div class="panel-body">
+
+		{{#success}}
+		<div class="alert alert-success" role='alert'>
+			{{message}} <span class="glyphicon glyphicon-check"> </span> <br>
+			<p><a href="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/main_page.php">Return to the application</a></p>
+		</div>
+		{{/success}}
+
+
+		{{^success}}
+		<div class="alert alert-danger" role="alert">
+			{{message}} <span class="glyphicon glyphicon-remove"> </span> <br> <br>
+			<p><a href="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/main_page.php">Return to the application</a></p>
+		</div>
+		{{/success}}
+
+
+	</div>
+</div>
+</div>

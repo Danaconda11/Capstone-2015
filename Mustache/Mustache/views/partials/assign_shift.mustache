@@ -1,0 +1,153 @@
+<form
+	class="form-horzontal"
+	id="assign_shift_form"
+	style="margin-bottom: 0px;"
+	method="post"
+	action="https://csunix.mohawkcollege.ca/~*Mid*/private/Capstone/processing.php"
+>
+
+<input type="hidden" name="form_shift" value="1" />
+
+	<div class="form-group">
+		<label class="col-md-2">Name</label>
+		<div class="col-md-6">
+		<select class="form-control" id="option_emps" name="name" required>
+		<option value="0" required>--Select Employee--</option>
+		{{#employees}}
+			<option value="{{EMP_ID}}">{{EMP_NAME}}</option>
+		{{/employees}}
+		</select>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Week</label>
+		<div class="col-md-6">
+		<input class="form-control" type="number" name="week" max="53" placeholder="Next scheduling week is: {{week}}"required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Year</label>
+		<div class="col-md-6">
+		<input class="form-control" type="number" min="{{year}}" name="year" value="{{year}}" required>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Vacation</label>
+		<div class="col-md-6">
+		Yes<input  type="radio" name="vacation" value="1" >
+		No<input  type="radio" name="vacation" value="0">
+		</div>
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Monday</label>
+		<div class="col-md-3">
+		<input type="checkbox" class="check_weekday" name="weekday[monday][value]" value="1" >
+		</div>
+
+		<div class="col-md-3">
+			First
+			<input  type="radio" name="weekday[monday][shift_type]" value="First" >
+			Second
+			<input type="radio" name="weekday[monday][shift_type]" value="Second">
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Tuesday</label>
+		<div class="col-md-3">
+		<input type="checkbox" class="check_weekday" name="weekday[tuesday][value]" value="2">
+		</div>
+
+		<div class="col-md-3">
+			First
+			<input type="radio" name="weekday[tuesday][shift_type]" value="First">
+			Second
+			<input type="radio" name="weekday[tuesday][shift_type]" value="Second">
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Wednesday</label>
+		<div class="col-md-3">
+		<input type="checkbox" class="check_weekday" name="weekday[wednesday][value]" value="3" >
+		</div>
+
+		<div class="col-md-3">
+			First
+			<input type="radio" name="weekday[wednesday][shift_type]" value="First">
+			Second
+			<input type="radio" name="weekday[wednesday][shift_type]" value="Second">
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Thursday</label>
+		<div class="col-md-3">
+		<input  type="checkbox" class="check_weekday" name="weekday[thursday][value]" value="4" >
+		</div>
+
+		<div class="col-md-3">
+			First
+			<input type="radio" name="weekday[thursday][shift_type]" value="First">
+			Second
+			<input type="radio" name="weekday[thursday][shift_type]" value="Second">
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">Friday</label>
+		<div class="col-md-3">
+		<input  type="checkbox" class="check_weekday" name="weekday[friday][value]" value="5" >
+		</div>
+
+		<div class="col-md-3">
+			First
+			<input type="radio" name="weekday[friday][shift_type]" value="First">
+			Second
+			<input type="radio" name="weekday[friday][shift_type]" value="Second">
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="form-group">
+		<label class="col-md-2">All</label>
+		<div class="col-md-2">
+		<input  type="checkbox" id="check_all" value="5" >
+		</div>
+
+	</div>
+
+	<br>
+
+	<div class="modal-footer">
+		<button id="assign_shift_submit" type="submit" class="btn btn-default btn-sm" >Submit</button>
+		<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+	</div>
+
+</form>
